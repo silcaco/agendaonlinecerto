@@ -52,7 +52,8 @@ if (window.emailjs) {
 }
 
 // Função auxiliar para enviar e-mail de confirmação/lembrete
-const sendConfirmationEmail = (emailDestino, tipo, titulo, data, hora_ou_prioridade) => {
+sendConfirmationEmail(usuario.email, tipo, titulo, data, hora);
+
     if (!window.emailjs || !emailDestino) {
         // console.error("EmailJS não pode enviar e-mail. SDK ausente ou email de destino não encontrado.");
         return;
@@ -1218,4 +1219,5 @@ function renderAchievements() {
         `;
         listEl.appendChild(card);
     }
+
 }
