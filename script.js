@@ -51,8 +51,16 @@ if (window.emailjs) {
     // console.error("EmailJS SDK não carregado. Verifique o script no index.html.");
 }
 
-// Função auxiliar para enviar e-mail de confirmação/lembrete
-sendConfirmationEmail(usuario.email, tipo, titulo, data, hora);
+// supondo que você tenha um campo "eventEmail" no formulário de evento:
+const emailDestino = document.getElementById('eventEmail').value.trim();
+
+sendConfirmationEmail(
+    emailDestino || currentUser.email, // envia para o convidado, se existir
+    "EVENTO",
+    title,
+    formatDateBR(date),
+    formatTime(time)
+);
 
     if (!window.emailjs || !emailDestino) {
         // console.error("EmailJS não pode enviar e-mail. SDK ausente ou email de destino não encontrado.");
@@ -1221,3 +1229,4 @@ function renderAchievements() {
     }
 
 }
+
